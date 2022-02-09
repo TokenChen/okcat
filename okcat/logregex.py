@@ -24,7 +24,7 @@ __author__ = 'jacks.gong'
 
 # val = 'data,time,process,thread,level,tag,message = "(.\S*) (.\S*) (\d*) (\d*) ([V|I|D|W|E]) ([^:]*): (.*)"'
 REGEX_EXP_RE = re.compile(r"([^ =]*) *= *[\"|'](.*)[\"|']")
-ALL_SUPPORT_KEY = ["data", "time", "process", "thread", "level", "tag", "message"]
+ALL_SUPPORT_KEY = ["date", "time", "process", "thread", "level", "tag", "message"]
 
 
 class LogRegex:
@@ -44,7 +44,7 @@ class LogRegex:
             else:
                 print_warn("not support key[%s] only support: %s" % (key, ALL_SUPPORT_KEY))
 
-        print("find regex: " + self.key_order.__str__() + " with " + regex)
+        print("find regex: " + self.key_order.__str__() + " with " + self.regex.__str__())
 
     def parse(self, line):
         data = None
@@ -56,6 +56,8 @@ class LogRegex:
         message = None
 
         values = self.regex.match(line)
+        #if values is not None:
+        #    exit()
 
         if values is None:
             return data, time, level, tag, process, thread, message
@@ -65,7 +67,7 @@ class LogRegex:
         for value in values.groups():
             key = self.key_order[i]
             i += 1
-            if key == "data":
+            if key == "date":
                 data = value
             elif key == "time":
                 time = value
@@ -80,7 +82,8 @@ class LogRegex:
             elif key == "message":
                 message = value
 
-        return data, time, level, tag, process, thread, message
+        result = data, time, level, tag, process, thread, message
+        return result
 
     contain_data = None
     contain_time = None

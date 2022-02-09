@@ -71,7 +71,7 @@ class ConfLoader:
         return self.get_value('log-line-regex')
 
     def get_adb_log_line_regex(self):
-        return self.get_value('adb-log-line-regex')
+        return self.get_value('log-line-regex')
 
     def get_separator_regex_list(self):
         return self.get_value('separator-regex-list')

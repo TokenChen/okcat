@@ -1,0 +1,21 @@
+02-09 14:10:38.115  1237  2262 I NetWorkManager: netWorkType:1
+02-09 14:10:38.381   973   973 V Duer-OrientationSensorReport: delayUpdate: last:1, now:2
+02-09 14:10:38.421   973   973 V Duer-OrientationSensorReport: delayUpdate: last:1, now:1
+02-09 14:10:38.461   973   973 V Duer-Orien: delayUpdate: last:1, now:2
+02-09 14:10:38.481   973   973 V Duer-Orienta: ~~~callback delayUpdate: last:1, ~~~callback now:1
+02-09 14:10:38.581   973   973 V Duer-Orientation: delayUpdate: last:1, now:2
+02-09 14:10:38.601   973   973 V Duer-OrientationSensorReport: call start Url[ delayUpdate: last:1, now:1]
+02-09 14:10:38.841   973   973 V Duer-OrientationSensorReport: delayUpdate: last:1, now:2
+02-09 14:10:38.861   973   973 V Duer-OrientationSensorReport: filedownloader:lifecycle:over delayUpdate: last:1, now:1
+02-09 14:10:38.901   973   973 V Duer-OrientationSensorReport: notify progress delayUpdate: last:1, now:2
+02-09 14:10:38.921   973   973 V Duer-OrientationSensorReport: fetch data with:delayUpdate: last:1, now:1
+02-09 14:10:38.961   973   973 V Duer-OrientationSensorReport: delayUpdate: last:1, now:2
+02-09 14:10:39.159  1237  2257 I Duer-OriConnectTask e     : File.ConnectTask multicast handle, config version match
+02-09 14:10:38.981   973   973 V Duer-Orien : File.ConnetcTask delayUpdate: last:1, now:1
+02-09 14:10:39.159  1237  2265 I Duer-OriDownloadTaskHunter dci     : DownloadTaskHunter receive multicast packet length:32 from /172.24.82.107
+02-09 14:10:39.159  1237  2257 I Duer-OriConnectTaskdci     : File.ConnectTask multicast handle, config version match
+02-09 14:10:39.160  1237  2257 I dci     : add a device into map: C45A8E5F, current size:9
+02-09 14:10:39.363   973   973 V Duer-OrientationSensorReport: delayUpdate: last:1, now:2
+02-09 14:10:39.381   973   973 V Duer-OrientationSensorReport: delayUpdate: last:1, now:1
+02-09 14:10:39.670   653   780 E WifiVendorHal: getWifiLinkLayerStatus(l.937) failed {.code = ERROR_NOT_SUPPORTED, .description = }
+
