@@ -46,7 +46,7 @@ def main():
                         help='Do not display the same tag name')
 
     # following args are just for parser
-    # parser.add_argument('-k', '--keyword', dest='keyword', action='append', help='You can filter you care about log by this keyword(s)')
+    parser.add_argument('-k', '--keyword', dest='keyword', nargs='+', help='You can filter you care about log by this keyword(s)')
 
     # following args are just for adb
     parser.add_argument('-w', '--tag-width', metavar='N', dest='tag_width', type=int, default=23,
@@ -83,7 +83,8 @@ def main():
         if is_path(path):
             file_paths.append(path)
 
-    if file_paths:
+    if file_paths :
+        print("parse file")
         if args.yml is None:
             print("")
             print_exit("Please using '-y=conf-name' to provide config file to parse this log file.")
@@ -92,11 +93,12 @@ def main():
             print("-------------------------------------------------------")
             exit()
 
-        parser = LogFileParser(file_paths, args.hide_same_tags)
+        parser = LogFileParser(file_paths, args.hide_same_tags, args.keyword)
         parser.setup(args.yml)
         parser.process()
     else:
         is_interrupt_by_user = False
+        print("parse adb")
 
         _adb = Adb()
         _adb.setup(args)

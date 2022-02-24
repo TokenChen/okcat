@@ -17,6 +17,7 @@ See the License for the specific language governing permissions and
 limitations under the License.
 """
 from okcat.terminalcolor import colorize, allocate_color, BLACK
+import re
 
 __author__ = 'JacksGong'
 
@@ -33,25 +34,28 @@ class Trans:
 
     def trans_msg(self, msg):
         if self.trans_msg_map is None:
-            return msg
+            return msg, False
 
         for key in self.trans_msg_map:
-            if msg.startswith(key):
+            result = re.search(key, msg)
+            if result:
                 value = self.trans_msg_map[key]
-                return u'| %s | %s' % (colorize(value, fg=allocate_color(value)), msg)
+                for res in result.groups():
+                    value += ":" + res
+                return u'| %s | %s' % (colorize(value, fg=allocate_color(value)), msg), True
 
-        return msg
+        return msg, False
 
     def trans_tag(self, tag, msg):
         if self.trans_tag_map is None or tag is None:
-            return msg
+            return msg, False
 
         for key in self.trans_tag_map:
             if key in tag:
                 prefix = self.trans_tag_map[key]
-                return u'%s %s' % (colorize(prefix, bg=allocate_color(prefix)), msg)
+                return u'%s %s' % (colorize(prefix, bg=allocate_color(prefix)), msg),True
 
-        return msg
+        return msg,False
 
     def hide_msg(self, msg):
         if self.hide_msg_list is None:

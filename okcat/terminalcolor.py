@@ -114,7 +114,7 @@ TAGTYPES = {
 KNOWN_TAGS = {
     'dalvikvm': WHITE,
     'Process': WHITE,
-    'ActivityManager': WHITE,
+    'ActivityManager': BLUE,
     'ActivityThread': WHITE,
     'AndroidRuntime': CYAN,
     'jdwp': WHITE,

@@ -46,7 +46,7 @@ PID_KILL = re.compile(r'^Killing (\d+):([a-zA-Z0-9._:]+)/[^:]+: (.*)$')
 PID_LEAVE = re.compile(r'^No longer want ([a-zA-Z0-9._:]+) \(pid (\d+)\): .*$')
 PID_DEATH = re.compile(r'^Process ([a-zA-Z0-9._:]+) \(pid (\d+)\) has died.?$')
 
-ADB_LOG_REGEX_EXP = 'data,time,process,thread,level,tag,message="(.\S*) *(.\S*) *(\d*) *(\d*) *([A-Z]) *([^:]*): *(.*?)$"'
+ADB_LOG_REGEX_EXP = 'date,time,process,thread,level,tag,message="(.\S*) *(.\S*) *(\d*) *(\d*) *([A-Z]) *([^:]*): *(.*?)$"'
 
 BUG_LINE = re.compile(r'.*nativeGetEnabledTags.*')
 BACKTRACE_LINE = re.compile(r'^#(.*?)pc\s(.*?)$')
@@ -102,11 +102,18 @@ class Adb:
             if yml_adb_log_regex is not None:
                 self.log_regex = LogRegex(yml_adb_log_regex)
 
-            self.processor.setup_condition(tag_keywords=conf_loader.get_tag_keyword_list())
+            self.processor.setup_condition(tag_keywords=conf_loader.get_tag_keyword_map())
             self.processor.setup_trans(trans_msg_map=conf_loader.get_trans_msg_map(),
                                        trans_tag_map=conf_loader.get_trans_tag_map(),
                                        hide_msg_list=conf_loader.get_hide_msg_list())
-            self.processor.setup_highlight(highlight_list=conf_loader.get_highlight_list())
+
+            unique_hightlist = set()
+            if conf_loader.get_highlight_list():
+                unique_hightlist = unique_hightlist.union(set(conf_loader.get_highlight_list()))
+            if args.keyword:
+                unique_hightlist = list(unique_hightlist.union(set(args.keyword)))
+            print(unique_hightlist)
+            self.processor.setup_highlight(highlight_list=unique_hightlist)
             self.processor.setup_separator(separator_rex_list=conf_loader.get_separator_regex_list())
 
         if self.log_regex is None:
@@ -253,7 +260,7 @@ class Adb:
             if self.tag and not tag_in_tags_regex(tag, self.tag):
                 continue
 
-            msg_key, linebuf, match_precondition = self.processor.process_decode_content(line, time, level, tag, owner,
+            msg_key, linebuf, match_precondition = self.processor.process_decode_content(line, date, time, level, tag, owner,
                                                                                          thread,
                                                                                          message)
             if not match_precondition or linebuf is None:

@@ -88,6 +88,7 @@ class LogRegex:
     contain_data = None
     contain_time = None
     contain_thread = None
+    contain_process = None
     contain_tag = None
     contain_level = None
 
@@ -105,6 +106,11 @@ class LogRegex:
         if self.contain_thread is None:
             self.contain_thread = self.is_contain_key("thread")
         return self.contain_thread
+
+    def is_contain_process(self):
+        if self.contain_process is None:
+            self.contain_process = self.is_contain_key("process")
+        return self.contain_process
 
     def is_contain_tag(self):
         if self.contain_tag is None:

@@ -15,6 +15,7 @@ WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
 See the License for the specific language governing permissions and
 limitations under the License.
 """
+from distutils import errors
 import re
 import sys
 
@@ -72,4 +73,4 @@ def line_rstrip(line):
     if sys.version_info >= (3, 0):
         return line.rstrip()
     else:
-        return line.decode('utf-8').rstrip()
+        return line.decode('utf-8', errors='ignore').rstrip()

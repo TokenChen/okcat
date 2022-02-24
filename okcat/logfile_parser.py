@@ -30,13 +30,15 @@ class LogFileParser:
     valid = False
     processor = None
     hideSameTags = None
+    keywords = None
     logStreams = []
     cacheLines = []
     lineTimes = []
 
-    def __init__(self, file_paths, hide_same_tags):
+    def __init__(self, file_paths, hide_same_tags, keywords):
         self.filePaths = file_paths
         self.hideSameTags = hide_same_tags
+        self.keywords = keywords
 
     def setup(self, yml_file_name):
         for path in self.filePaths:
@@ -51,8 +53,15 @@ class LogFileParser:
                                    trans_tag_map=loader.get_trans_tag_map(),
                                    hide_msg_list=loader.get_hide_msg_list())
         self.processor.setup_separator(separator_rex_list=loader.get_separator_regex_list())
-        self.processor.setup_highlight(highlight_list=loader.get_highlight_list())
-        self.processor.setup_condition(tag_keywords=loader.get_tag_keyword_list())
+        highlight_list = loader.get_highlight_list()
+        unique_hightlist = set()
+        if highlight_list:
+            unique_hightlist = unique_hightlist.union(set(highlight_list))
+        if self.keywords:
+            unique_hightlist = list(unique_hightlist.union(set(self.keywords)))
+        print(unique_hightlist)
+        self.processor.setup_highlight(list(unique_hightlist))
+        self.processor.setup_condition(tag_keywords=loader.get_tag_keyword_map())
         self.processor.setup_regex_parser(regex_exp=loader.get_log_line_regex())
 
     def color_line(self, line):

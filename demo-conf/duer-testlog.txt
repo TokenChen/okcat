@@ -19,3 +19,33 @@
 02-09 14:10:39.381   973   973 V Duer-OrientationSensorReport: delayUpdate: last:1, now:1
 02-09 14:10:39.670   653   780 E WifiVendorHal: getWifiLinkLayerStatus(l.937) failed {.code = ERROR_NOT_SUPPORTED, .description = }
 
+10-21 16:00:43.187 31708 31997 I Duer-[Chain][Node][DcsDirective][Prefix]: Call receive directive:{"directive":{"payload":{"packageName":"com.mgtv.tv","needResponse":false,"params":{"bindAccount":1,"description":"","duration":3000,"sendBenefit":0,"title":"\u65e0\u9700\u53d1\u653e","type":"toast"},"token":"eyJib3RfaWQiOiJhaS5kdWVyb3MuYm90LnZpZGVvX29uX2RlbWFuZCIsInJlc3VsdF90b2tlbiI6IjM0ODE2YjBlNzM5NDgzMjJhM2RjNzQzOGM2ZjQ2NWIwIiwiYm90X3Rva2VuIjoiYTUxNWMwNzM0YTM5NzZmZTg5YzU0OGNkYTMzODIxZDIiLCJsYXVuY2hfaWRzIjpbImFpLmR1ZXJvcy5ib3QudmlkZW9fb25fZGVtYW5kIl19"}}}
+10-21 16:00:43.215 31708 31997 I Duer-lib-dcs-DcsDirectiveCallback: FinishHandleDirectives receive directive:null
+10-21 16:00:46.163 31708 31721 I Duer-lib-dcs-EventFromLauncherHandler: notifyDcsHandleEvent: event=SEND_EVENT, eventStr={"header":{"messageId":"629fe6d0-dd4c-4188-b7c0-9dcdf70de80d","name":"LinkClicked","namespace":"ai.dueros.device_interface.screen"},"payload":{"initiator":{"source":"DEVICE","type":"USER_CLICK"},"url":"dueros://video_on_demand.bot.dueros.ai/vipPay/buy_vip?from_source=3&provider=com.mgtv.tv"}}
+10-21 15:59:47.591 31626 31766 I Duer-AMSEventDispatcher: publish: eventType:ACTIVITY_RESUMED, packageName:com.baidu.launcher, componentName:com.baidu.launcher/com.baidu.duershow.activity.MainActivity
+10-21 15:59:53.041   677   708 I ActivityManager: Start proc 9321:com.baidu.duershow.media.mediaplayerservice/u0a26 for service com.baidu.duershow.media/.MediaPlayerService
+10-21 15:59:56.818   677   708 I ActivityManager: Start proc 9395:com.baidu.duershow.media.mediaplayerservice/u0a26 for service com.baidu.duershow.media/.MediaPlayerService
+10-21 15:59:56.861   677 31618 I ActivityManager: resolveIntent intent = Intent { act=com.baidu.common.startFragment flg=0x10000000 (has extras) } resolvedType = null userId = 0 flags = 0x20000000 uid = 10048
+10-21 15:59:56.862   677 31618 I ActivityManager: START u0 {act=com.baidu.common.startFragment flg=0x10000000 cmp=com.baidu.launcher/com.baidu.duer.common.ui.base.activity.FragmentWrapperActivity (has extras)} from uid 10048 processName = com.baidu.launcher
+10-21 15:59:56.876 31626 31954 I Duer-AMSEventDispatcher: publish: eventType:ACTIVITY_PAUSED, packageName:com.baidu.launcher, componentName:com.baidu.launcher/com.baidu.duershow.activity.MainActivity
+10-21 15:17:27.648 32264 32281 E AndroidRuntime: FATAL EXCEPTION: Binder:32264_3
+10-21 15:17:27.648 32264 32281 E AndroidRuntime: Process: com.baidu.duershow.media.mediaplayerservice, PID: 32264
+10-21 15:17:27.648 32264 32281 E AndroidRuntime: java.lang.UnsatisfiedLinkError: No implementation found for void tv.danmaku.ijk.media.player.IjkMediaPlayer.native_init_turbonet(long, java.lang.String) (tried Java_tv_danmaku_ijk_media_player_IjkMediaPlayer_native_1init_1turbonet and Java_tv_danmaku_ijk_media_player_IjkMediaPlayer_native_1init_1turbonet__JLjava_lang_String_2)
+10-21 15:17:27.648 32264 32281 E AndroidRuntime: 	at tv.danmaku.ijk.media.player.IjkMediaPlayer.native_init_turbonet(Native Method)
+10-21 15:17:27.648 32264 32281 E AndroidRuntime: 	at tv.danmaku.ijk.media.player.IjkMediaPlayer.nativeInitTurboNet(IjkMediaPlayer.java:1140)
+10-21 15:17:27.648 32264 32281 E AndroidRuntime: 	at tv.danmaku.ijk.media.player.agent.IjkMediaPlayerAgent.<init>(IjkMediaPlayerAgent.java:49)
+10-21 15:17:27.648 32264 32281 E AndroidRuntime: 	at com.baidu.duershow.media.MediaPlayerService$2.create(MediaPlayerService.java:77)
+10-21 15:17:27.648 32264 32281 E AndroidRuntime: 	at tv.danmaku.ijk.media.player.IIjkMediaPlayerService$Stub.onTransact(IIjkMediaPlayerService.java:71)
+10-21 15:17:27.648 32264 32281 E AndroidRuntime: 	at android.os.Binder.execTransact(Binder.java:731)
+10-21 16:00:45.976   677 31656 I ActivityManager: START u0 {flg=0x10000000 cmp=com.mgtv.tv/.ott.pay.activity.OttPayXdzjProxyActivity (has extras)} from uid 10033 processName = com.mgtv.tv
+02-23 17:48:56.007   425   440 E ActivityManager: ANR in com.qiyi.video.speaker (com.qiyi.video.speaker/org.qiyi.speaker.activity.SpeakerWebViewActivity)
+02-23 17:48:56.007   425   440 E ActivityManager: PID: 19220
+02-23 17:48:56.007   425   440 E ActivityManager: Reason: Input dispatching timed out (Waiting to send non-key event because the touched window has not finished processing certain input events that were delivered to it over 500.0ms ago.  Wait queue length: 8.  Wait queue head age: 5024.7ms.)
+02-23 17:48:56.007   425   440 E ActivityManager: Parent: com.qiyi.video.speaker/.activity.PlayerActivity
+02-23 17:48:56.007   425   440 E ActivityManager: Load: 15.54 / 6.36 / 3.19
+02-23 17:36:31.979 18179 18192 F libc    : Fatal signal 11 (SIGSEGV), code 1, fault addr 0xe1700000 in tid 18192 (Binder:18179_2), pid 18179 (maker:DfpAssist)
+02-23 17:36:32.294 18215 18215 F DEBUG   : *** *** *** *** *** *** *** *** *** *** *** *** *** *** *** ***
+02-23 17:36:32.295 18215 18215 F DEBUG   : Build fingerprint: 'rockchip/rk3326_32bit/rk3326_32bit:8.1.0/OPM6.171019.030.B1/073126:user/release-keys'
+02-23 17:36:32.295 18215 18215 F DEBUG   : Revision: '0'
+02-23 17:36:32.295 18215 18215 F DEBUG   : ABI: 'arm'
+02-23 17:36:32.295 18215 18215 F DEBUG   : pid: 18179, tid: 18192, name: Binder:18179_2  >>> com.smile.gifmaker:DfpAss

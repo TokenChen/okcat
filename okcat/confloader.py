@@ -52,7 +52,7 @@ class ConfLoader:
     def get_package(self):
         return self.get_value('package')
 
-    def get_tag_keyword_list(self):
+    def get_tag_keyword_map(self):
         return self.get_value('tag-keyword-list')
 
     def get_trans_msg_map(self):
@@ -77,6 +77,7 @@ class ConfLoader:
         return self.get_value('separator-regex-list')
 
     def get_value(self, keyword):
+        print(keyword)
         if keyword not in self.yml_conf:
             if keyword != 'from' and self.from_yml_conf is not None:
                 return self.from_yml_conf.get_value(keyword)
@@ -89,7 +90,7 @@ class ConfLoader:
         print('package: %s' % self.get_package())
         print('log-line-regex: %s' % self.get_log_line_regex())
         print('adb-log-line-regex: %s' % self.get_adb_log_line_regex())
-        self.dump_list('tag-keyword-list')
+        self.dump_unicode_map('tag-keyword-list')
         self.dump_unicode_map('trans-msg-map')
         self.dump_unicode_map('trans-tag-map')
         self.dump_list('hide-msg-list')
