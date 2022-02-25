@@ -17,11 +17,11 @@ limitations under the License.
 """
 from os.path import exists
 
-from okcat.confloader import ConfLoader
-from okcat.helper import LOG_LEVELS_MAP, get_conf_path, handle_home_case, print_unicode
-from okcat.logprocessor import LogProcessor, indent_wrap
-from okcat.logregex import LogRegex
-from okcat.terminalcolor import termcolor, RED, RESET, YELLOW, GREEN, colorize, WHITE, allocate_color
+from ducat.confloader import ConfLoader
+from ducat.helper import LOG_LEVELS_MAP, get_conf_path, handle_home_case, print_unicode
+from ducat.logprocessor import LogProcessor, indent_wrap
+from ducat.logregex import LogRegex
+from ducat.terminalcolor import termcolor, RED, RESET, YELLOW, GREEN, colorize, WHITE, allocate_color
 
 __author__ = 'JacksGong'
 

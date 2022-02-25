@@ -20,8 +20,8 @@ from setuptools import setup, find_packages
 # Get the long description from the README file
 # noinspection PyArgumentList
 setup(
-    name="OkCat",
-    version="1.1.6",
+    name="DuCat",
+    version="1.0.0",
     packages=find_packages(exclude=['demo-conf', 'arts']),
 
     # Project uses reStructuredText, so ensure that the docutils get
@@ -29,13 +29,13 @@ setup(
     install_requires=['PyYAML>=3.12'],
 
     # metadata for upload to PyPI
-    author="Jacksgong",
-    author_email="igzhenjie@gmail.com",
-    description="An powerful log processor",
-    long_description='More detail please move to https://github.com/Jacksgong/okcat',
+    author="Zhentao",
+    author_email="chenzhentao70@gmail.com",
+    description="An powerful log processor BASE ON OkCat",
+    long_description='More detail please move to https://github.com/TokenChen/okcat',
     license="Apache2",
     keywords="okcat log 'log processor' 'log filter'",
-    url="https://github.com/Jacksgong/okcat",
+    url="https://github.com/TokenChen/okcat",
 
     # See https://pypi.python.org/pypi?%3Aaction=list_classifiers
     classifiers=[
@@ -43,7 +43,7 @@ setup(
         #   3 - Alpha
         #   4 - Beta
         #   5 - Production/Stable
-        'Development Status :: 5 - Production/Stable',
+        'Development Status :: 3 - Alpha',
 
         # Pick your license as you wish (should match "license" above)
         'License :: OSI Approved :: Apache Software License',
@@ -59,7 +59,7 @@ setup(
     ],
     entry_points={
         'console_scripts': [
-            'okcat=okcat:main'
+            'ducat=ducat:main'
         ]
     }
 )

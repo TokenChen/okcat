@@ -18,10 +18,10 @@ limitations under the License.
 import re
 from os.path import exists
 
-from okcat.confloader import ConfLoader
-from okcat.helper import get_conf_path, print_unicode
-from okcat.logprocessor import LogProcessor
-from okcat.terminalcolor import colorize, allocate_color
+from ducat.confloader import ConfLoader
+from ducat.helper import get_conf_path, print_unicode
+from ducat.logprocessor import LogProcessor
+from ducat.terminalcolor import colorize, allocate_color
 
 TIME_REGEX = r'\d{2}-\d{2} \d{2}:\d{2}:\d{2}\.\d+'
 

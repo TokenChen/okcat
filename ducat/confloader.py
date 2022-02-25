@@ -19,7 +19,7 @@ limitations under the License.
 
 import yaml
 
-from okcat.helper import handle_home_case, get_conf_path
+from ducat.helper import handle_home_case, get_conf_path
 
 __author__ = 'JacksGong'
 

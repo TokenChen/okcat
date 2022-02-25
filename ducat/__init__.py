@@ -18,10 +18,10 @@ limitations under the License.
 import argparse
 from sys import argv
 
-from okcat.adb import Adb
-from okcat.helper import LOG_LEVELS, is_path
-from okcat.logfile_parser import LogFileParser
-from okcat.terminalcolor import print_tips, print_blue, print_warn, print_header, print_exit
+from ducat.adb import Adb
+from ducat.helper import LOG_LEVELS, is_path, init_baseyml
+from ducat.logfile_parser import LogFileParser
+from ducat.terminalcolor import print_tips, print_blue, print_warn, print_header, print_exit
 
 __author__ = 'JacksGong'
 __version__ = '1.1.6'
@@ -46,7 +46,7 @@ def main():
                         help='Do not display the same tag name')
 
     # following args are just for parser
-    # parser.add_argument('-k', '--keyword', dest='keyword', action='append', help='You can filter you care about log by this keyword(s)')
+    parser.add_argument('-k', '--keyword', dest='keyword', nargs='+', help='You can filter you care about log by this keyword(s)')
 
     # following args are just for adb
     parser.add_argument('-w', '--tag-width', metavar='N', dest='tag_width', type=int, default=23,
@@ -83,20 +83,24 @@ def main():
         if is_path(path):
             file_paths.append(path)
 
-    if file_paths:
-        if args.yml is None:
-            print("")
-            print_exit("Please using '-y=conf-name' to provide config file to parse this log file.")
-            print("The config file is very very simple! More detail about config file please move to : https://github.com/Jacksgong/okcat")
-            print("")
-            print("-------------------------------------------------------")
-            exit()
 
-        parser = LogFileParser(file_paths, args.hide_same_tags)
+    init_baseyml()
+    if args.yml is None:
+        print("parse file is None, use base.yml")
+        print("you can use '-y=conf-name' to provide config file to parse this log file.")
+        print("The config file is very very simple! More detail about config file please move to : https://github.com/Jacksgong/okcat")
+        print("")
+        print("-------------------------------------------------------")
+        args.yml = "base.yml"
+    if file_paths :
+        print("parse file")
+
+        parser = LogFileParser(file_paths, args.hide_same_tags, args.keyword)
         parser.setup(args.yml)
         parser.process()
     else:
         is_interrupt_by_user = False
+        print("parse adb")
 
         _adb = Adb()
         _adb.setup(args)
@@ -107,3 +111,6 @@ def main():
 
         if not is_interrupt_by_user:
             print_warn('ADB CONNECTION IS LOST.')
+
+if __name__ == "__main__":
+    main()

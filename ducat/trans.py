@@ -16,7 +16,7 @@ WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
 See the License for the specific language governing permissions and
 limitations under the License.
 """
-from okcat.terminalcolor import colorize, allocate_color, BLACK
+from ducat.terminalcolor import colorize, allocate_color, BLACK
 import re
 
 __author__ = 'JacksGong'

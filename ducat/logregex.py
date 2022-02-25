@@ -18,7 +18,7 @@ limitations under the License.
 
 import re
 
-from okcat.terminalcolor import print_warn
+from ducat.terminalcolor import print_warn
 
 __author__ = 'jacks.gong'
 
@@ -92,9 +92,9 @@ class LogRegex:
     contain_tag = None
     contain_level = None
 
-    def is_contain_data(self):
+    def is_contain_date(self):
         if self.contain_data is None:
-            self.contain_data = self.is_contain_key("data")
+            self.contain_data = self.is_contain_key("date")
         return self.contain_data
 
     def is_contain_time(self):

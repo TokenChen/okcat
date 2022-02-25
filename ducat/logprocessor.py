@@ -20,11 +20,11 @@ from operator import le
 import re
 from unittest import result
 
-from okcat.helper import line_rstrip
-from okcat.logregex import LogRegex
-from okcat.logseparator import LogSeparator
-from okcat.terminalcolor import allocate_color, colorize, TAGTYPES, termcolor, BLACK, RESET
-from okcat.trans import Trans
+from ducat.helper import line_rstrip
+from ducat.logregex import LogRegex
+from ducat.logseparator import LogSeparator
+from ducat.terminalcolor import allocate_color, colorize, TAGTYPES, termcolor, BLACK, RESET
+from ducat.trans import Trans
 
 __author__ = 'JacksGong'
 

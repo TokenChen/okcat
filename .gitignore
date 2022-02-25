@@ -6,3 +6,6 @@
 *.egg-info
 /dist
 /build
+DuCat.egg-info/
+build/
+dist/
